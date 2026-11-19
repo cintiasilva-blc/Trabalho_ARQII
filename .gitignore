@@ -21,7 +21,3 @@ __pycache__/
 # Arquivos temporarios do editor
 *.swp
 *~
-
-/entradas/imagem1_256.png
-/entradas/imagem2_512.png
-/entradas/imagem3_1024.png

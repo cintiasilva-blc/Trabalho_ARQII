@@ -15,9 +15,5 @@ cd entradas
 cd ..
 ```
 
-## Imagens
 
-- `imagem1_256.png`
-- `imagem2_512.png`
-- `imagem3_1024.png`
 
