@@ -49,7 +49,7 @@ cd entradas
 cd ..
 ```
 
-As imagens originais fornecidas pela professora devem ser colocadas na pasta `entradas/`, com os nomes:
+As imagens originais foram fornecidas pela professora e se encontram na pasta `entradas/`, com os nomes:
 
 - `imagem1_256.png`
 - `imagem2_512.png`
