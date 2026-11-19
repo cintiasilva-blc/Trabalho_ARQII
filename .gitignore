@@ -1,0 +1,27 @@
+# Programas compilados
+/matriz/gerador
+/matriz/sequencial
+/matriz/paralelo
+
+/imagem/sequencial
+/imagem/paralelo
+
+/contador/sequencial
+/contador/mutex
+/contador/local
+
+# Matrizes geradas
+/entradas/A_*.txt
+/entradas/B_*.txt
+
+# Arquivos temporarios do Python
+__pycache__/
+*.pyc
+
+# Arquivos temporarios do editor
+*.swp
+*~
+
+/entradas/imagem1_256.png
+/entradas/imagem2_512.png
+/entradas/imagem3_1024.png

@@ -1,30 +1,96 @@
 ## Avaliação de Desempenho e Programação Paralela com Threads
 
-Trabalho prático da disciplina **Arquitetura e Organização de Computadores II** (12029)\
-Ciência da Computação - UEM (Universidade Estadual de Maringá)\
-**Professora:** Sandra Cossul.
+Trabalho prático da disciplina Arquitetura e Organização de Computadores II (12029)\
+Ciência da Computação - Universidade Estadual de Maringá (UEM).
 
-### Sobre o projeto
-O objetivo é avaliar experimentalmente o impacto do uso de múltiplas threads no desempenho de aplicações, comparando versões sequenciais e paralelas (C com POSIX Threads). São analisados tempo de execução, speedup, eficiência paralela e escalabilidade, relacionando os resultados a conceitos como processadores multicore, memória cache e coerência de cache (protocolo MESI).
+**Professora:** Sandra Cossul  
+**Autoras:** 
+- Cintia da Silva Bulcão
+- Giovana da Silva Bulcão
 
-### Aplicações
+### Descrição
 
-- **Multiplicação de matrizes** (256, 512 e 1024)
-- **Filtro de média 3x3 em imagens** em escala de cinza
-- **Contadores paralelos** até 100 milhões (mutex compartilhado vs. contadores locais)
+O trabalho tem como objetivo comparar o desempenho de aplicações sequenciais e paralelas utilizando a linguagem C e a biblioteca POSIX Threads (pthreads).
 
-### Como executar
+Foram implementadas três aplicações:
+
+- Multiplicação de matrizes de dimensões 256×256, 512×512 e 1024×1024.
+- Processamento de imagens em escala de cinza utilizando filtro de média 3×3.
+- Contadores sequenciais e paralelos, com mutex e contadores locais.
+
+As versões paralelas foram testadas utilizando 2, 4 e 8 threads.
+
+### Ambiente de execução
+
+- Processador: Intel Core i5-13420H
+- Memória RAM: 16 GB
+- Sistema operacional: Fedora Linux 44
+- Compilador: GCC 
+- Compilação: `-O2 -pthread`, utilizando `-lm` nas aplicações de imagens
+
+### Compilação
+
+Na raiz do projeto, execute:
 
 ```bash
-gcc -O2 -pthread programa.c -o programa
-./programa <tamanho> <threads>
+make
 ```
 
-### Ambiente de testes
-- Processador: Intel Core i5-13420H (8 núcleos físicos / 12 threads lógicas)
-- RAM: 16 GB
-- SO / Compilador: Fedora Linux 44 / GCC 16.2.1 (-O2 -pthread)
+### Arquivos de entrada
 
-### Autoras
-Cintia da Silva Bulcão  [GitHub](https://github.com/cintiasilva-blc)\
-Giovana da Silva Bulcão [GitHub](https://github.com/giovanabulcao)
+As matrizes são geradas utilizando o código disponibilizado pela professora.
+
+Para gerá-las:
+
+```bash
+mkdir -p entradas
+cd entradas
+../matriz/gerador
+cd ..
+```
+
+As imagens originais fornecidas pela professora devem ser colocadas na pasta `entradas/`, com os nomes:
+
+- `imagem1_256.png`
+- `imagem2_512.png`
+- `imagem3_1024.png`
+
+### Execução dos programas
+
+Exemplos:
+
+```bash
+./matriz/sequencial 256
+./matriz/paralelo 256 4
+
+./imagem/sequencial entradas/imagem1_256.png
+./imagem/paralelo entradas/imagem1_256.png 4
+
+./contador/sequencial
+./contador/mutex 4
+./contador/local 4
+```
+
+### Experimentos
+
+Para executar todas as configurações, cinco vezes cada:
+
+```bash
+bash scripts/rodar_exp.sh
+```
+
+Os tempos serão registrados em `resultados/tempos.csv`.
+
+Para gerar as estatísticas e os gráficos:
+
+```bash
+python3 scripts/analisar.py
+```
+
+Os resultados serão salvos nas pastas `resultados/tabelas` e `resultados/graficos`.
+
+### Resultados
+
+O desempenho foi avaliado por meio do tempo de execução, speedup e eficiência paralela. Foram realizadas cinco execuções de cada configuração, utilizando a mediana como medida principal.
+
+As tabelas e os gráficos estão disponíveis na pasta `resultados/`.
