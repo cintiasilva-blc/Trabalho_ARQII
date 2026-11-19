@@ -20,7 +20,7 @@ gcc -O2 -pthread programa.c -o programa
 ./programa <tamanho> <threads>
 ```
 
-## Ambiente de testes
+### Ambiente de testes
 - Processador: Intel Core i5-13420H (8 núcleos físicos / 12 threads lógicas)
 - RAM: 16 GB
 - SO / Compilador: Fedora Linux 44 / GCC 16.2.1 (-O2 -pthread)
