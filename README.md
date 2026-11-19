@@ -1,7 +1,7 @@
 ## Avaliação de Desempenho e Programação Paralela com Threads
 
-Trabalho prático da disciplina **Arquitetura e Organização de Computadores II** (12029)
-Ciência da Computação - UEM (Universidade Estadual de Maringá)
+Trabalho prático da disciplina **Arquitetura e Organização de Computadores II** (12029)\
+Ciência da Computação - UEM (Universidade Estadual de Maringá)\
 **Professora:** Sandra Cossul.
 
 ### Sobre o projeto
@@ -26,5 +26,5 @@ gcc -O2 -pthread programa.c -o programa
 - SO / Compilador: Fedora Linux 44 / GCC 16.2.1 (-O2 -pthread)
 
 ### Autoras
-Cintia da Silva Bulcão  [GitHub](https://github.com/cintiasilva-blc)
+Cintia da Silva Bulcão  [GitHub](https://github.com/cintiasilva-blc)\
 Giovana da Silva Bulcão [GitHub](https://github.com/giovanabulcao)
